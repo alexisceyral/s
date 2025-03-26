@@ -1,4 +1,4 @@
-
+point = 0
 print("Que permet d'afficher la commande suivante ?")
 print("print('Hello, World!')")
 print("A) Bonjour, Monde !")
@@ -7,6 +7,7 @@ print("C) Hello, World!")
 a = str(input("Quel est la réponse (A, B ou C) ? "))
 if a == "C":
     print("Bonne réponse")
+    point=point + 1
 else:
     print("Mauvaise réponse")
 
@@ -18,6 +19,7 @@ print("D) func")
 b = str(input("Quel est la réponse (A, B, C ou D) ? "))
 if b == "C":
     print("Bonne réponse")
+    point=point + 1
 else:
     print("Mauvaise réponse")
 
@@ -30,6 +32,7 @@ print("D) str")
 c = str(input("Quel est la réponse (A, B, C ou D) ? "))
 if c == "B":
     print("Bonne réponse")
+    point=point + 1
 else:
     print("Mauvaise réponse")
 
@@ -42,6 +45,7 @@ print("D) Erreur")
 d = str(input("Quel est la réponse (A, B, C ou D) ? "))
 if d == "A":
     print("Bonne réponse")
+    point=point + 1
 else:
     print("Mauvaise réponse")
 
@@ -53,5 +57,6 @@ print("D) list.push(element)")
 e = str(input("Quel est la réponse (A, B, C ou D) ? "))
 if e == "A":
     print("Bonne réponse")
+    point=point + 1
 else:
     print("Mauvaise réponse")
