@@ -33,6 +33,39 @@ questions = [
             "D": "func"
         },
         "answer": "C"
+    },
+    {
+        "question": "Quel est le type de la variable suivante ?\nx = 3.14",
+        "options": ["A", "B", "C", "D"],
+        "text_options": {
+            "A": "int",
+            "B": "float",
+            "C": "double",
+            "D": "str"
+        },
+        "answer": "B"
+    },
+    {
+        "question": "Quelle est la sortie de ce code ?\nprint(2 * 'Python')",
+        "options": ["A", "B", "C", "D"],
+        "text_options": {
+            "A": "PythonPython",
+            "B": "2Python",
+            "C": "Python2",
+            "D": "Erreur"
+        },
+        "answer": "A"
+    },
+    {
+        "question": "Comment ajouter un élément à une liste en Python ?",
+        "options": ["A", "B", "C", "D"],
+        "text_options": {
+            "A": "list.append(element)",
+            "B": "list.add(element)",
+            "C": "list.insert(element)",
+            "D": "list.push(element)"
+        },
+        "answer": "A"
     }
 ]
 
@@ -42,7 +75,7 @@ def lancer_quizz():
     score_quiz = 0
     window = tk.Toplevel(main_window)
     window.title("Quiz Python")
-    window.geometry("600x400")
+    window.geometry("1200x800")
     selected_option = tk.StringVar()
 
     def show_question():
@@ -54,7 +87,7 @@ def lancer_quizz():
             widget.destroy()
         for code in q["options"]:
             text = f"{code}) {q['text_options'][code]}"
-            rb = tk.Radiobutton(options_frame, text=text, variable=selected_option, value=code, font=("Arial", 11))
+            rb = tk.Radiobutton(options_frame, text=text, variable=selected_option, value=code, font=("Arial", 15))
             rb.pack(anchor="w")
 
     def next_question():
@@ -66,7 +99,10 @@ def lancer_quizz():
             return
         correct = questions[current_question]["answer"]
         if selected == correct:
+            messagebox.showinfo("Bonne réponse", "Bonne réponse.")
             score_quiz += 1
+        else :
+            messagebox.showinfo("Mauvaise réponse", "Mauvaise réponse.")
         current_question += 1
         if current_question < len(questions):
             show_question()
@@ -77,7 +113,7 @@ def lancer_quizz():
             else:
                 show_scene("prison")
 
-    question_label = tk.Label(window, text="", wraplength=550, font=("Arial", 13), justify="left")
+    question_label = tk.Label(window, text="", wraplength=550, font=("Arial", 20), justify="left")
     question_label.pack(pady=20)
 
     options_frame = tk.Frame(window)
@@ -90,7 +126,7 @@ def lancer_quizz():
 # Mots inversés
 # ---------------------------
 def mots_inverses():
-    mots = ["sliated", "rueval", "erdnaxela"]
+    mots = ["euqitamrofni", "nohtyp", "tnirp"]
     mot = random.choice(mots)
     def verifier():
         entree = entry.get()
@@ -209,26 +245,26 @@ def show_scene(scene):
         widget.destroy()
 
     def add_button(text, cmd):
-        tk.Button(main_window, text=text, command=cmd, font=("Helvetica", 13)).pack(pady=10)
+        tk.Button(main_window, text=text, command=cmd, font=("Helvetica", 17)).pack(pady=10)
 
     if scene == "intro":
-        tk.Label(main_window, text="Vous êtes un érudit convoqué par le roi.", fg="white", bg="black", font=("Helvetica", 14)).pack(pady=20)
+        tk.Label(main_window, text="Vous êtes un érudit convoqué par le roi.", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Accepter la mission", lancer_quizz)
 
     elif scene == "noble":
-        tk.Label(main_window, text="Vous êtes promu noble. Déchiffrez un message.", fg="white", bg="black", font=("Helvetica", 14)).pack(pady=20)
+        tk.Label(main_window, text="Vous êtes promu noble. Déchiffrez un message.", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Décoder", mots_inverses)
 
     elif scene == "prison":
-        tk.Label(main_window, text="Vous êtes emprisonné. Des mots apparaissent à l'envers.", fg="white", bg="black", font=("Helvetica", 14)).pack(pady=20)
+        tk.Label(main_window, text="Vous êtes emprisonné. Des mots apparaissent à l'envers.", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Essayer d'inverser", mots_inverses)
 
     elif scene == "echec_prison":
-        tk.Label(main_window, text="Vous sombrez dans la folie... vous jouez au blackjack seul !", fg="white", bg="black", font=("Helvetica", 14)).pack(pady=20)
+        tk.Label(main_window, text="Vous sombrez dans la folie... vous jouez au blackjack seul !", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Jouer au blackjack", BJtkinter)
 
     elif scene == "reussite_prison":
-        tk.Label(main_window, text="Un portail s'ouvre. Trouvez qui vous à emprisonnés...", fg="white", bg="black", font=("Helvetica", 14)).pack(pady=20)
+        tk.Label(main_window, text="Un portail s'ouvre. Trouvez qui vous à emprisonnés...", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Deviner", JeuTraitre)
 
 # ---------------------------
@@ -236,7 +272,7 @@ def show_scene(scene):
 # ---------------------------
 main_window = tk.Tk()
 main_window.title("L'érudit et les mystères du royaume")
-main_window.geometry("700x500")
+main_window.geometry("1200x800")
 main_window.configure(bg="black")
 show_scene("intro")
 main_window.mainloop()
