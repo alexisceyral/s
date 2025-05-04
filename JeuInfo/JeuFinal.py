@@ -197,7 +197,7 @@ def BJtkinter():
 
     root = tk.Toplevel(main_window)
     root.title("Blackjack")
-    root.geometry("500x400")
+    root.geometry("1000x800")
 
     label_joueur = tk.Label(root, text=f"Main joueur: {carte_j}\nScore: {calculer_score(carte_j)}")
     label_joueur.pack(pady=10)
