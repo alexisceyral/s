@@ -151,7 +151,7 @@ def mots_inverses():
 # ---------------------------
 def BJtkinter():
     s = 0
-#definiton des valurs de chaques cartes
+#definiton des valeurs de chaques cartes
     def valeur_cartes(carte):
         if carte[1] in ['Valet', 'Reine', 'Roi']:
             return 10
@@ -264,7 +264,7 @@ def show_scene(scene):
         add_button("Jouer au blackjack", BJtkinter)
 
     elif scene == "reussite_prison":
-        tk.Label(main_window, text="Un portail s'ouvre. Trouvez qui vous à emprisonnés...", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
+        tk.Label(main_window, text="Le roi vous demande de trouver un traitre. Trouvez qui vous à trahis...", fg="white", bg="black", font=("Helvetica", 20)).pack(pady=20)
         add_button("Deviner", JeuTraitre)
 
 # ---------------------------
